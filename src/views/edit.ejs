@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> - Expense Tracker</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>💰 Expense Tracker</h1>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="/">รายการรายจ่าย</a></li>
+        <li><a href="/add">เพิ่มรายจ่าย</a></li>
+        <li><a href="/summary">สรุปรายงาน</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="card">
+      <h2 style="margin-bottom: 1.5rem; color: #1f2937;">แก้ไขรายจ่าย</h2>
+
+      <form action="/edit/<%= expense.id %>" method="POST">
+        <div class="form-group">
+          <label class="form-label">วันที่ *</label>
+          <input 
+            type="date" 
+            name="date" 
+            class="form-input" 
+            value="<%= expense.date %>"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">รายการ *</label>
+          <input 
+            type="text" 
+            name="description" 
+            class="form-input" 
+            value="<%= expense.description %>"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">หมวดหมู่ *</label>
+          <select name="category" class="form-select" required>
+            <% categories.forEach(category => { %>
+              <option 
+                value="<%= category %>" 
+                <%= expense.category === category ? 'selected' : '' %>
+              >
+                <%= category %>
+              </option>
+            <% }); %>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">จำนวนเงิน (บาท) *</label>
+          <input 
+            type="number" 
+            name="amount" 
+            class="form-input" 
+            step="0.01" 
+            min="0.01"
+            value="<%= expense.amount %>"
+            required
+          >
+        </div>
+
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+          <button type="submit" class="btn btn-primary">บันทึกการแก้ไข</button>
+          <a href="/" class="btn btn-secondary">ยกเลิก</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem 0; color: #6b7280; margin-top: 3rem;">
+    <p>&copy; 2026 Expense Tracker</p>
+  </footer>
+</body>
+</html>

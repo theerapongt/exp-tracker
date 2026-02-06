@@ -1,0 +1,30 @@
+<%
+// properties: name, label, options (array of strings or objects {value, label}), value, required, placeholder
+const classes = "bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-xl focus:ring-cream-900 focus:border-cream-900 block w-full p-4 transition-colors focus:bg-white cursor-pointer appearance-none";
+%>
+<div class="mb-5 relative">
+  <label for="<%= name %>" class="block mb-2 text-sm font-medium text-gray-700"><%= label %> <%= required ? '*' : '' %></label>
+  <div class="relative">
+      <select 
+        id="<%= name %>" 
+        name="<%= name %>" 
+        class="<%= classes %>"
+        <%= required ? 'required' : '' %>
+      >
+        <% if (typeof placeholder !== 'undefined') { %>
+            <option value="" disabled <%= !value ? 'selected' : '' %>><%= placeholder %></option>
+        <% } %>
+        
+        <% options.forEach(option => { 
+            const optValue = typeof option === 'object' ? option.value : option;
+            const optLabel = typeof option === 'object' ? option.label : option;
+            const isSelected = value === optValue;
+        %>
+          <option value="<%= optValue %>" <%= isSelected ? 'selected' : '' %>><%= optLabel %></option>
+        <% }); %>
+      </select>
+      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+      </div>
+  </div>
+</div>

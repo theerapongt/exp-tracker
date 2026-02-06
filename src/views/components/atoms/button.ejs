@@ -1,0 +1,22 @@
+<%
+// properties: href (optional), type: 'primary' | 'secondary' | 'dark', label, icon (optional)
+const baseClasses = "inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
+const variants = {
+  primary: "bg-accent-yellow text-cream-900 hover:bg-yellow-400 focus:ring-accent-yellow",
+  secondary: "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 focus:ring-gray-200",
+  dark: "bg-cream-900 text-white hover:bg-gray-800 focus:ring-gray-800"
+};
+const classes = `${baseClasses} ${variants[typeof type !== 'undefined' ? type : 'primary']} ${typeof className !== 'undefined' ? className : ''}`;
+%>
+
+<% if (typeof href !== 'undefined' && href) { %>
+  <a href="<%= href %>" class="<%= classes %>">
+    <% if (typeof icon !== 'undefined' && icon) { %><span class="mr-2"><%- icon %></span><% } %>
+    <%= label %>
+  </a>
+<% } else { %>
+  <button type="<%= typeof submit !== 'undefined' && submit ? 'submit' : 'button' %>" class="<%= classes %>">
+    <% if (typeof icon !== 'undefined' && icon) { %><span class="mr-2"><%- icon %></span><% } %>
+    <%= label %>
+  </button>
+<% } %>

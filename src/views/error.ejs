@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เกิดข้อผิดพลาด - Expense Tracker</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>💰 Expense Tracker</h1>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="/">รายการรายจ่าย</a></li>
+        <li><a href="/add">เพิ่มรายจ่าย</a></li>
+        <li><a href="/summary">สรุปรายงาน</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="card">
+      <div style="text-align: center; padding: 2rem;">
+        <h2 style="color: #ef4444; margin-bottom: 1rem;">⚠️ เกิดข้อผิดพลาด</h2>
+        <p style="color: #6b7280; margin-bottom: 2rem;"><%= error %></p>
+        <a href="/" class="btn btn-primary">กลับหน้าหลัก</a>
+      </div>
+    </div>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem 0; color: #6b7280; margin-top: 3rem;">
+    <p>&copy; 2026 Expense Tracker</p>
+  </footer>
+</body>
+</html>

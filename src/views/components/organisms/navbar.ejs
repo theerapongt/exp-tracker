@@ -1,0 +1,27 @@
+<nav class="flex items-center justify-between py-6 mb-8">
+  <div class="flex items-center gap-2">
+    <div class="w-10 h-10 rounded-full bg-cream-900 flex items-center justify-center text-white font-bold text-lg">E</div>
+    <span class="text-xl font-bold text-cream-900 tracking-tight">ExpTracker</span>
+  </div>
+
+  <div class="hidden md:flex items-center bg-white/50 backdrop-blur-md px-2 py-2 rounded-full shadow-sm border border-white/60">
+    <a href="/" class="px-6 py-2 rounded-full text-sm font-medium transition-colors <%= path === '/' ? 'bg-cream-900 text-white' : 'text-gray-600 hover:text-cream-900' %>">
+      Dashboard
+    </a>
+    <a href="/add" class="px-6 py-2 rounded-full text-sm font-medium transition-colors <%= path === '/add' ? 'bg-cream-900 text-white' : 'text-gray-600 hover:text-cream-900' %>">
+      Add Expense
+    </a>
+    <a href="/summary" class="px-6 py-2 rounded-full text-sm font-medium transition-colors <%= path === '/summary' ? 'bg-cream-900 text-white' : 'text-gray-600 hover:text-cream-900' %>">
+      Reports
+    </a>
+  </div>
+
+  <div class="flex items-center gap-4">
+    <button class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-500 hover:text-cream-900 shadow-sm transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+    </button>
+    <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden shadow-sm border-2 border-white">
+      <img src="https://ui-avatars.com/api/?name=User&background=random" alt="User" class="w-full h-full object-cover">
+    </div>
+  </div>
+</nav>

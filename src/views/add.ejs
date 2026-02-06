@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> - Expense Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-cream-50 text-gray-800 antialiased min-h-screen font-sans">
+  
+  <div class="max-w-7xl mx-auto px-6">
+    <%- include('components/organisms/navbar', { path: '/add' }) %>
+
+    <div class="max-w-2xl mx-auto pt-8 pb-12">
+        
+        <!-- Header -->
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-cream-900 mb-2">เพิ่มรายจ่ายใหม่</h1>
+            <p class="text-gray-500">บันทึกรายละเอียดการใช้จ่ายของคุณ</p>
+        </div>
+
+        <!-- Card Form -->
+        <div class="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-8 md:p-10 relative overflow-hidden">
+            
+            <!-- Decorative circle -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-accent-yellow/10 rounded-full translate-x-1/3 -translate-y-1/3 blur-xl pointer-events-none"></div>
+
+            <form action="/add" method="POST">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6">
+                    <%- include('components/atoms/input', { 
+                        name: 'date', 
+                        label: 'วันที่', 
+                        type: 'date',
+                        value: today,
+                        required: true
+                    }) %>
+
+                    <%- include('components/atoms/input', { 
+                        name: 'amount', 
+                        label: 'จำนวนเงิน (บาท)', 
+                        type: 'number',
+                        placeholder: '0.00',
+                        step: '0.01',
+                        min: '0.01',
+                        required: true
+                    }) %>
+                </div>
+
+                <%- include('components/atoms/input', { 
+                    name: 'description', 
+                    label: 'รายการ', 
+                    placeholder: 'เช่น ค่าอาหารเที่ยง, ค่ารถไฟฟ้า',
+                    required: true
+                }) %>
+
+                <%- include('components/atoms/select', { 
+                    name: 'category', 
+                    label: 'หมวดหมู่', 
+                    options: categories, 
+                    placeholder: '-- เลือกหมวดหมู่ --',
+                    value: '',
+                    required: true
+                }) %>
+
+                <div class="mt-8 flex items-center gap-4">
+                    <button type="submit" class="flex-1 bg-cream-900 text-white font-medium py-4 px-6 rounded-2xl hover:bg-gray-800 transition-colors shadow-lg shadow-gray-200">
+                        บันทึกรายจ่าย
+                    </button>
+                    <a href="/" class="px-6 py-4 rounded-2xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition-colors">
+                        ยกเลิก
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+  </div>
+
+</body>
+</html>

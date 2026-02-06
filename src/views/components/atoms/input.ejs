@@ -1,0 +1,18 @@
+<%
+// properties: type (text, number, date), name, label, value, placeholder, required, step, min
+const classes = "w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-xl focus:ring-cream-900 focus:border-cream-900 block w-full p-4 transition-colors placeholder-gray-400 focus:bg-white";
+%>
+<div class="mb-5">
+  <label for="<%= name %>" class="block mb-2 text-sm font-medium text-gray-700"><%= label %> <%= required ? '*' : '' %></label>
+  <input 
+    type="<%= type || 'text' %>" 
+    id="<%= name %>" 
+    name="<%= name %>" 
+    class="<%= classes %>" 
+    value="<%= typeof value !== 'undefined' ? value : '' %>"
+    placeholder="<%= typeof placeholder !== 'undefined' ? placeholder : '' %>"
+    <%= required ? 'required' : '' %>
+    <%= typeof step !== 'undefined' ? `step="${step}"` : '' %>
+    <%= typeof min !== 'undefined' ? `min="${min}"` : '' %>
+  >
+</div>
